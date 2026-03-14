@@ -113,15 +113,11 @@ impl BrailleBar {
         let full_chars = filled / 8;
         let remainder = filled % 8;
 
-        let mut bar = String::with_capacity(width * 4);
-        for _ in 0..full_chars {
-            bar.push(BRAILLE[8]);
-        }
+        let mut bar = String::with_capacity(width * 3);
+        bar.extend(std::iter::repeat_n(BRAILLE[8], full_chars));
         if full_chars < width {
             bar.push(BRAILLE[remainder]);
-            for _ in (full_chars + 1)..width {
-                bar.push(BRAILLE[0]);
-            }
+            bar.extend(std::iter::repeat_n(BRAILLE[0], width - full_chars - 1));
         }
         bar
     }

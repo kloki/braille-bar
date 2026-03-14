@@ -1,6 +1,6 @@
 [package]
 name = "braille-bar"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Render a percentage as a fixed-width braille bar"
 license = "MIT"
